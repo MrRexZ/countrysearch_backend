@@ -2,6 +2,7 @@ package com.mrrexz.countrysearch_backend.service.country.filter;
 
 import com.mrrexz.countrysearch_backend.bean.Country;
 import com.mrrexz.countrysearch_backend.bean.LatLng;
+import com.mrrexz.countrysearch_backend.service.country.testdata.CountryTestData;
 import com.mrrexz.countrysearch_backend.service.location.ILocationService;
 import com.mrrexz.countrysearch_backend.service.location.LocationService;
 import org.junit.Before;
@@ -15,6 +16,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static com.mrrexz.countrysearch_backend.service.country.testdata.CountryTestData.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.mock;
@@ -28,22 +30,10 @@ public class CountryFilterTest {
     @Mock
     private LocationService locationService = mock(LocationService.class);
 
-    Country indonesia;
-    Country america;
-    Country uk;
-    Country singapore;
-    Country india;
-    Country austria;
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
 
-
-        indonesia = new Country("Indonesia", 5.548290, 95.323753);
-        america = new Country("America", 40.884514, -73.419167);
-        uk = new Country("UK", 55.006763, -7.318268);
-        singapore = new Country("SG", 1.352083, 103.819839);
-        india = new Country("India", 12.651805, 	77.208946);
     }
 
     @Test
