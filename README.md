@@ -1,6 +1,7 @@
 # Country Search (Backend)
 
 My first experimentation with building a simple web app in Spring Boot.
+Pairable with [my other frontend app](https://github.com/MrRexZ/countrysearch_frontend).
 
 
 ## Table of Contents
