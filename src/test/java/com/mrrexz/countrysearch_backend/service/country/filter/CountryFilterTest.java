@@ -43,9 +43,9 @@ public class CountryFilterTest {
     public void testNameMatcherWorksWithMoreThan1Items() {
         List<Country> oriList = new LinkedList<Country>() {
             {
-                add(indonesia);
                 add(america);
                 add(india);
+                add(indonesia);
                 add(new Country("", -1, 0));
                 add(new Country("Y", 0, 0));
             }
@@ -53,8 +53,8 @@ public class CountryFilterTest {
 
         List<Country> expectedList = new LinkedList<Country>() {
             {
-                add(indonesia);
                 add(india);
+                add(indonesia);
             }
         };
 
