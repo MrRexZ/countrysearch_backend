@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.LinkedList;
 import java.util.List;
+
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,10 +31,12 @@ public class CountryFilterTest {
     @Mock
     private LocationService locationService = mock(LocationService.class);
 
+    LatLng serverLatLngTest;
+
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
-
+        serverLatLngTest = new LatLng(4.695135, 96.749397);
     }
 
     @Test
@@ -112,7 +115,6 @@ public class CountryFilterTest {
             }
         };
 
-        LatLng serverLatLngTest = new LatLng(4.695135, 96.749397);
         when(locationService.getServerLatLngCache()).thenReturn(serverLatLngTest);
         when(locationService.getDistance(anyDouble(), anyDouble(), anyDouble(), anyDouble())).thenCallRealMethod();
         List<Country> actualCountryList = countryFilterService.getSortedCountries(oriList);
@@ -122,10 +124,22 @@ public class CountryFilterTest {
     @Test
     public void testCoorSortWorksWith0Items() {
 
+        List<Country> oriList = new LinkedList<Country>();
+        List<Country> expectedList = new LinkedList<Country>();
+        when(locationService.getServerLatLngCache()).thenReturn(serverLatLngTest);
+        when(locationService.getDistance(anyDouble(), anyDouble(), anyDouble(), anyDouble())).thenCallRealMethod();
+        List<Country> actualCountryList = countryFilterService.getSortedCountries(oriList);
+        Assert.assertEquals(expectedList, actualCountryList);
+
     }
 
     @Test
     public void testCoorSortWorksWithNullInput() {
-
+        List<Country> inputList = null;
+        List<Country> expectedList = inputList;
+        when(locationService.getServerLatLngCache()).thenReturn(serverLatLngTest);
+        when(locationService.getDistance(anyDouble(), anyDouble(), anyDouble(), anyDouble())).thenCallRealMethod();
+        List<Country> actualCountryList = countryFilterService.getSortedCountries(inputList);
+        Assert.assertEquals(expectedList, actualCountryList);
     }
 }
