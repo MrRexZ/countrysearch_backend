@@ -1,4 +1,4 @@
-package com.mrrexz.countrysearch_backend.util.config;
+package com.mrrexz.countrysearch_backend.config;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
