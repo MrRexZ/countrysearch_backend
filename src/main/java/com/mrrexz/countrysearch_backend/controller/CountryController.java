@@ -17,9 +17,9 @@ public class CountryController {
 
     @CrossOrigin(origins = Config.CLIENT_URL)
     @RequestMapping(value = "getCountries", method = RequestMethod.GET)
-    public @ResponseBody List<Country> getMatchingSortedCountries(@RequestParam("search") String countryToSearch) {
-        List<Country> matchingSortedCountry = countryService.getMatchingSortedClosestCountries(countryToSearch);
-        return matchingSortedCountry;
+    public @ResponseBody List<String> getMatchingSortedCountries(@RequestParam("search") String countryToSearch) {
+        List<String> matchingSortedCountriesName = countryService.getMatchingSortedClosestCountriesName(countryToSearch);
+        return matchingSortedCountriesName;
     }
 
 

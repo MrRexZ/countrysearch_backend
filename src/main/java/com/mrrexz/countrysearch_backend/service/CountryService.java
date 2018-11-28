@@ -32,6 +32,11 @@ public class CountryService implements ICountryService {
         return matchingSortedCountries;
     }
 
+    @Override
+    public List<String> getMatchingSortedClosestCountriesName(String countryToSearch) {
+        return getMatchingSortedClosestCountries(countryToSearch).stream().map(country -> country.getCountryName()).collect(Collectors.toList());
+    }
+
     private List<Country> getMatchingCountry(String countryToSearch, List<Country> countries) {
         return countries.stream().filter(country -> {
             String countryName = country.getCountryName();

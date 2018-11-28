@@ -10,5 +10,7 @@ public interface ICountryService {
 
     public List<Country> findAll();
 
-    List<Country> getMatchingSortedClosestCountries(String cityToSearch);
+    List<Country> getMatchingSortedClosestCountries(String countryToSearch);
+
+    List<String> getMatchingSortedClosestCountriesName(String countryToSearch);
 }
