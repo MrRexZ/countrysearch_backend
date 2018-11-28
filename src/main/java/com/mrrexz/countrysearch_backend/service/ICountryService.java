@@ -8,9 +8,5 @@ import java.util.List;
 
 public interface ICountryService {
 
-    public List<Country> findAll();
-
-    List<Country> getMatchingSortedClosestCountries(String countryToSearch);
-
     List<String> getMatchingSortedClosestCountriesName(String countryToSearch);
 }

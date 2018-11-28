@@ -6,8 +6,6 @@ import com.mrrexz.countrysearch_backend.repository.ICountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,12 +17,6 @@ public class CountryService implements ICountryService {
     @Autowired
     ILocationService locationService;
 
-    @Override
-    public List<Country> findAll() {
-        return countryRepository.getAllCountry();
-    }
-
-    @Override
     public List<Country> getMatchingSortedClosestCountries(String countryToSearch) {
         List<Country> allCountries = countryRepository.getAllCountry();
         List<Country> matchingCountries = getMatchingCountry(countryToSearch, allCountries);
