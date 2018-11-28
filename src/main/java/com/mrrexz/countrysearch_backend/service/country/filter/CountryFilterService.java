@@ -37,7 +37,7 @@ public class CountryFilterService implements ICountryFilterService {
     public List<Country> getSortedCountries(List<Country> countriesToSort) {
         LatLng serverLatLng;
         serverLatLng = locationService.getServerLatLngCache();
-        if (serverLatLng == null) {
+        if (serverLatLng == null || countriesToSort == null) {
             return countriesToSort;
         }
         return countriesToSort.stream().sorted((country, anotherCountry) -> {
