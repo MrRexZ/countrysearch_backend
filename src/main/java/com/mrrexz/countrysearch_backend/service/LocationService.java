@@ -3,18 +3,15 @@ package com.mrrexz.countrysearch_backend.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import com.mrrexz.countrysearch_backend.bean.LatLng;
 import com.mrrexz.countrysearch_backend.util.config.Config;
-import jdk.nashorn.internal.parser.JSONParser;
+import com.mrrexz.countrysearch_backend.util.location.Haversine;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 
@@ -28,6 +25,11 @@ public class LocationService implements ILocationService {
         double longitude = serverLocationJson.get("longitude").getAsDouble();
         return new LatLng(latitude, longitude);
 
+    }
+
+    @Override
+    public double getDistance(double latitude1, double longitude1, double latitude2, double longitude2) {
+        return Haversine.distance(latitude1, longitude1, latitude2, longitude2);
     }
 
     private JsonObject getCurrentLocationJSON() throws IOException {
