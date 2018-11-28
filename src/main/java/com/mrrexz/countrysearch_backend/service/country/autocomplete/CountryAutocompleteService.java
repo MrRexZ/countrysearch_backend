@@ -1,8 +1,9 @@
-package com.mrrexz.countrysearch_backend.service;
+package com.mrrexz.countrysearch_backend.service.country.autocomplete;
 
 import com.mrrexz.countrysearch_backend.bean.Country;
 import com.mrrexz.countrysearch_backend.bean.LatLng;
 import com.mrrexz.countrysearch_backend.repository.ICountryRepository;
+import com.mrrexz.countrysearch_backend.service.location.ILocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,27 +11,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CountryService implements ICountryService {
+public class CountryAutocompleteService implements ICountryAutoCompleteService {
+
 
     @Autowired
     ICountryRepository countryRepository;
     @Autowired
     ILocationService locationService;
 
-    public List<Country> getMatchingSortedClosestCountries(String countryToSearch) {
-        List<Country> allCountries = countryRepository.getAllCountry();
-        List<Country> matchingCountries = getMatchingCountry(countryToSearch, allCountries);
-        List<Country> matchingSortedCountries = getSortedCountries(matchingCountries);
-        return matchingSortedCountries;
-    }
 
     @Override
-    public List<String> getMatchingSortedClosestCountriesName(String countryToSearch) {
-        return getMatchingSortedClosestCountries(countryToSearch).stream().map(country -> country.getCountryName()).collect(Collectors.toList());
-    }
-
-    private List<Country> getMatchingCountry(String countryToSearch, List<Country> countries) {
-        return countries.stream().filter(country -> {
+    public List<Country> getMatchingCountry(String countryToSearch, List<Country> countriesToMatch) {
+        return countriesToMatch.stream().filter(country -> {
             String countryName = country.getCountryName();
             if (countryName.length() < countryToSearch.length()) {
                 return false;
@@ -40,7 +32,8 @@ public class CountryService implements ICountryService {
 
     }
 
-    private List<Country> getSortedCountries(List<Country> countriesToSort) {
+    @Override
+    public List<Country> getSortedCountries(List<Country> countriesToSort) {
         LatLng serverLatLng;
         serverLatLng = locationService.getServerLatLngCache();
         if (serverLatLng == null) {

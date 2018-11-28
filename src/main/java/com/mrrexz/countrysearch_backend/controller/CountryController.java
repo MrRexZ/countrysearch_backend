@@ -1,8 +1,7 @@
 package com.mrrexz.countrysearch_backend.controller;
 
 
-import com.mrrexz.countrysearch_backend.bean.Country;
-import com.mrrexz.countrysearch_backend.service.ICountryService;
+import com.mrrexz.countrysearch_backend.service.country.ICountryService;
 import com.mrrexz.countrysearch_backend.util.config.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

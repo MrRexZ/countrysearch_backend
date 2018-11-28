@@ -1,4 +1,4 @@
-package com.mrrexz.countrysearch_backend.service;
+package com.mrrexz.countrysearch_backend.service.location;
 
 import com.mrrexz.countrysearch_backend.bean.LatLng;
 

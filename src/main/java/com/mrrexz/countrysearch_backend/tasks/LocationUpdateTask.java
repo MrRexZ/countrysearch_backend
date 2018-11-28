@@ -1,7 +1,7 @@
 package com.mrrexz.countrysearch_backend.tasks;
 
 import com.mrrexz.countrysearch_backend.bean.LatLng;
-import com.mrrexz.countrysearch_backend.service.ILocationService;
+import com.mrrexz.countrysearch_backend.service.location.ILocationService;
 import com.mrrexz.countrysearch_backend.util.config.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
