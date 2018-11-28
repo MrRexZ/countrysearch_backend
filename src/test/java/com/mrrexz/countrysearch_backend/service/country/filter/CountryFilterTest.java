@@ -32,6 +32,8 @@ public class CountryFilterTest {
     Country america;
     Country uk;
     Country singapore;
+    Country india;
+    Country austria;
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
@@ -41,25 +43,25 @@ public class CountryFilterTest {
         america = new Country("America", 40.884514, -73.419167);
         uk = new Country("UK", 55.006763, -7.318268);
         singapore = new Country("SG", 1.352083, 103.819839);
+        india = new Country("India", 12.651805, 	77.208946);
     }
 
     @Test
     public void testNameMatcherWorksWithMoreThan1Items() {
         List<Country> oriList = new LinkedList<Country>() {
             {
-                add(new Country("Indonesia", 0, 0));
-                add(new Country("America", 0, 0));
-                add(new Country("India", 0, 0));
+                add(indonesia);
+                add(america);
+                add(india);
                 add(new Country("", -1, 0));
-                add(new Country("Austria", 0, 0));
                 add(new Country("Y", 0, 0));
             }
         };
 
         List<Country> expectedList = new LinkedList<Country>() {
             {
-                add(new Country("Indonesia", 0, 0));
-                add(new Country("India", 0, 0));
+                add(indonesia);
+                add(india);
             }
         };
 
@@ -73,7 +75,7 @@ public class CountryFilterTest {
     public void testNameMatcherWorksWith1Item() {
         List<Country> oriList = new LinkedList<Country>() {
             {
-                add(new Country("Austria", 0, 0));
+                add(singapore);
             }
         };
         List<Country> expectedList = new LinkedList<Country>();
