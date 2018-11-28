@@ -45,6 +45,5 @@ public class LocationService implements ILocationService {
         );
         json = element.getAsJsonObject();
         return json;
-
     }
 }
