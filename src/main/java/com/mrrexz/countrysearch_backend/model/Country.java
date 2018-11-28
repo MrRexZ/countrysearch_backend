@@ -1,14 +1,8 @@
 package com.mrrexz.countrysearch_backend.model;
-
-import com.google.gson.annotations.SerializedName;
-
 public class Country {
 
-    @SerializedName("name")
     private String countryName;
-    @SerializedName("latitude")
     private double latitude;
-    @SerializedName("longitude")
     private double longitude;
 
     public Country(String countryName, double latitude, double longitude) {
