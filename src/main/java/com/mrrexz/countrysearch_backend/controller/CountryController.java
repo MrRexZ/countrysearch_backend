@@ -14,13 +14,6 @@ public class CountryController {
     @Autowired
     ICountryService countryService;
 
-    //TODO: Remove this later
-    @RequestMapping("/")
-    public String getAllCountries() {
-        List<Country> countries = countryService.findAll();
-        return "Test";
-    }
-
     @RequestMapping(value = "getCountries", method = RequestMethod.GET)
     public @ResponseBody List<Country> getMatchingSortedCountries(@RequestParam("search") String countryToSearch) {
         List<Country> matchingSortedCountry = countryService.getMatchingSortedClosestCountries(countryToSearch);
