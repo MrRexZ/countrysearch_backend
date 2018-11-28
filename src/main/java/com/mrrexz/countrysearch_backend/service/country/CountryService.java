@@ -1,10 +1,8 @@
 package com.mrrexz.countrysearch_backend.service.country;
 
 import com.mrrexz.countrysearch_backend.bean.Country;
-import com.mrrexz.countrysearch_backend.bean.LatLng;
 import com.mrrexz.countrysearch_backend.repository.ICountryRepository;
-import com.mrrexz.countrysearch_backend.service.country.autocomplete.ICountryAutoCompleteService;
-import com.mrrexz.countrysearch_backend.service.location.ILocationService;
+import com.mrrexz.countrysearch_backend.service.country.filter.ICountryFilterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +14,7 @@ public class CountryService implements ICountryService {
     @Autowired
     ICountryRepository countryRepository;
     @Autowired
-    ICountryAutoCompleteService countryAutoCompleteService;
+    ICountryFilterService countryAutoCompleteService;
 
 
     @Override

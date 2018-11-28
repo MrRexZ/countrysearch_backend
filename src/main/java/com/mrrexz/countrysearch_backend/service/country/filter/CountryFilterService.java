@@ -1,4 +1,4 @@
-package com.mrrexz.countrysearch_backend.service.country.autocomplete;
+package com.mrrexz.countrysearch_backend.service.country.filter;
 
 import com.mrrexz.countrysearch_backend.bean.Country;
 import com.mrrexz.countrysearch_backend.bean.LatLng;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CountryAutocompleteService implements ICountryAutoCompleteService {
+public class CountryFilterService implements ICountryFilterService {
 
 
     @Autowired
