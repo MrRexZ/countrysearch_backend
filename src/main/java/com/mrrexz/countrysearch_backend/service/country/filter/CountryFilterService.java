@@ -43,12 +43,12 @@ public class CountryFilterService implements ICountryFilterService {
         return countriesToSort.stream().sorted((country, anotherCountry) -> {
             double distanceToFirstCountry = locationService.getDistance(serverLatLng.getLatitude(), serverLatLng.getLongitude(), country.getLatitude(), country.getLongitude());
             double distanceToSecondCountry = locationService.getDistance(serverLatLng.getLatitude(), serverLatLng.getLongitude(), anotherCountry.getLatitude(), anotherCountry.getLongitude());
-            if (distanceToFirstCountry - distanceToSecondCountry > 0) {
-                return -1;
-            } else if (distanceToFirstCountry - distanceToSecondCountry == 0) {
+            if (distanceToFirstCountry > distanceToSecondCountry ) {
+                return 1;
+            } else if (distanceToFirstCountry == distanceToSecondCountry ) {
                 return 0;
             } else {
-                return 1;
+                return -1;
             }
         }).collect(Collectors.toList());
 
