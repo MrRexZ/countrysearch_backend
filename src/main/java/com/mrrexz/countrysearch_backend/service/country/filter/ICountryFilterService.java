@@ -1,6 +1,6 @@
 package com.mrrexz.countrysearch_backend.service.country.filter;
 
-import com.mrrexz.countrysearch_backend.bean.Country;
+import com.mrrexz.countrysearch_backend.model.Country;
 
 import java.util.List;
 

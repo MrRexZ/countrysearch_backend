@@ -3,7 +3,7 @@ package com.mrrexz.countrysearch_backend.service.location;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.mrrexz.countrysearch_backend.bean.LatLng;
+import com.mrrexz.countrysearch_backend.model.LatLng;
 import com.mrrexz.countrysearch_backend.config.Config;
 import com.mrrexz.countrysearch_backend.util.location.Haversine;
 import org.springframework.cache.Cache;

@@ -1,17 +1,14 @@
 package com.mrrexz.countrysearch_backend.service.country;
 
-import com.mrrexz.countrysearch_backend.bean.Country;
+import com.mrrexz.countrysearch_backend.model.Country;
 import com.mrrexz.countrysearch_backend.repository.CountryRepository;
-import com.mrrexz.countrysearch_backend.repository.ICountryRepository;
 import com.mrrexz.countrysearch_backend.service.country.filter.CountryFilterService;
-import com.mrrexz.countrysearch_backend.service.country.filter.ICountryFilterService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.LinkedList;
 import java.util.List;

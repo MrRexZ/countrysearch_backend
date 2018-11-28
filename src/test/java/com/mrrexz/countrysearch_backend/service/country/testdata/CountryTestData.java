@@ -1,6 +1,6 @@
 package com.mrrexz.countrysearch_backend.service.country.testdata;
 
-import com.mrrexz.countrysearch_backend.bean.Country;
+import com.mrrexz.countrysearch_backend.model.Country;
 
 public class CountryTestData {
 

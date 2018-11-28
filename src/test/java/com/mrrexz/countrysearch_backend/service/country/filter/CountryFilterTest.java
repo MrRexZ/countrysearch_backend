@@ -1,9 +1,7 @@
 package com.mrrexz.countrysearch_backend.service.country.filter;
 
-import com.mrrexz.countrysearch_backend.bean.Country;
-import com.mrrexz.countrysearch_backend.bean.LatLng;
-import com.mrrexz.countrysearch_backend.service.country.testdata.CountryTestData;
-import com.mrrexz.countrysearch_backend.service.location.ILocationService;
+import com.mrrexz.countrysearch_backend.model.Country;
+import com.mrrexz.countrysearch_backend.model.LatLng;
 import com.mrrexz.countrysearch_backend.service.location.LocationService;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +13,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Assert;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import static com.mrrexz.countrysearch_backend.service.country.testdata.CountryTestData.*;
 import static org.mockito.ArgumentMatchers.any;

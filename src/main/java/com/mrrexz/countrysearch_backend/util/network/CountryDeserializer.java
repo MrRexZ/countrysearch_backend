@@ -1,7 +1,7 @@
 package com.mrrexz.countrysearch_backend.util.network;
 
 import com.google.gson.*;
-import com.mrrexz.countrysearch_backend.bean.Country;
+import com.mrrexz.countrysearch_backend.model.Country;
 
 import java.lang.reflect.Type;
 import java.util.LinkedList;

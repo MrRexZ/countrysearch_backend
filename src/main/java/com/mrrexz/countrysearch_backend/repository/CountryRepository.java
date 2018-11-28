@@ -1,12 +1,10 @@
 package com.mrrexz.countrysearch_backend.repository;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.mrrexz.countrysearch_backend.bean.Country;
+import com.mrrexz.countrysearch_backend.model.Country;
 import com.mrrexz.countrysearch_backend.util.network.CountryDeserializer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 

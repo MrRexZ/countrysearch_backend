@@ -1,8 +1,7 @@
 package com.mrrexz.countrysearch_backend.service.country.filter;
 
-import com.mrrexz.countrysearch_backend.bean.Country;
-import com.mrrexz.countrysearch_backend.bean.LatLng;
-import com.mrrexz.countrysearch_backend.repository.ICountryRepository;
+import com.mrrexz.countrysearch_backend.model.Country;
+import com.mrrexz.countrysearch_backend.model.LatLng;
 import com.mrrexz.countrysearch_backend.service.location.ILocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

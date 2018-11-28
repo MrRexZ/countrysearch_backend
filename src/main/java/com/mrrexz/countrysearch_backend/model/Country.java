@@ -1,4 +1,4 @@
-package com.mrrexz.countrysearch_backend.bean;
+package com.mrrexz.countrysearch_backend.model;
 
 import com.google.gson.annotations.SerializedName;
 
