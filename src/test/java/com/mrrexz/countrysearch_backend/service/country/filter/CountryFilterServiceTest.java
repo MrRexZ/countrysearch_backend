@@ -20,7 +20,7 @@ import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class CountryFilterTest {
+public class CountryFilterServiceTest {
 
     @InjectMocks
     private CountryFilterService countryFilterService;

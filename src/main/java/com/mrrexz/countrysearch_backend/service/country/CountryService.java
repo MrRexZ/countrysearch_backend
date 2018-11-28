@@ -14,7 +14,7 @@ public class CountryService implements ICountryService {
     @Autowired
     ICountryRepository countryRepository;
     @Autowired
-    ICountryFilterService countryAutoCompleteService;
+    ICountryFilterService countryFilterService;
 
 
     @Override
@@ -24,8 +24,8 @@ public class CountryService implements ICountryService {
 
     private List<Country> getMatchingSortedClosestCountries(String countryToSearch) {
         List<Country> allCountries = countryRepository.getAllCountry();
-        List<Country> matchingCountries = countryAutoCompleteService.getMatchingCountry(countryToSearch, allCountries);
-        List<Country> matchingSortedCountries = countryAutoCompleteService.getSortedCountries(matchingCountries);
+        List<Country> matchingCountries = countryFilterService.getMatchingCountry(countryToSearch, allCountries);
+        List<Country> matchingSortedCountries = countryFilterService.getSortedCountries(matchingCountries);
         return matchingSortedCountries;
     }
 }
