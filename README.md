@@ -17,6 +17,8 @@ Pairable with [my other frontend app](https://github.com/MrRexZ/countrysearch_fr
 If the default port is changed, and if you're using [this frontend app](https://github.com/MrRexZ/countrysearch_frontend), you'll need to change the target port there too. 
 
 ## Instructions
+To launch the app, you can either refer to the `Release` tabs in Github or building from source.
+
 To build from source :
 
 1. Navigate to root, then run `mvn package`.
