@@ -26,14 +26,20 @@ public class CountryService implements ICountryService {
 
     @Override
     public List<Country> getMatchingSortedClosestCountries(String countryToSearch) {
-        List<Country>  allCountries = countryRepository.getAllCountry();
+        List<Country> allCountries = countryRepository.getAllCountry();
         List<Country> matchingCountries = getMatchingCountry(countryToSearch, allCountries);
         List<Country> matchingSortedCountries = getSortedCountries(matchingCountries);
-        return matchingCountries;
+        return matchingSortedCountries;
     }
 
     private List<Country> getMatchingCountry(String countryToSearch, List<Country> countries) {
-        return countries.stream().filter(country -> country.getCountryName().substring(0, countryToSearch.length()).equals(countryToSearch)).collect(Collectors.toList());
+        return countries.stream().filter(country -> {
+            String countryName = country.getCountryName();
+            if (countryName.length() < countryToSearch.length()) {
+                return false;
+            }
+            return country.getCountryName().substring(0, countryToSearch.length()).equalsIgnoreCase(countryToSearch);
+        }).collect(Collectors.toList());
 
     }
 
@@ -44,12 +50,12 @@ public class CountryService implements ICountryService {
             return countriesToSort.stream().sorted((country, anotherCountry) -> {
                 double distanceToFirstCountry = locationService.getDistance(serverLatLng.getLatitude(), serverLatLng.getLongitude(), country.getLatitude(), country.getLongitude());
                 double distanceToSecondCountry = locationService.getDistance(serverLatLng.getLatitude(), serverLatLng.getLongitude(), anotherCountry.getLatitude(), anotherCountry.getLongitude());
-                if (distanceToFirstCountry - distanceToSecondCountry > 0 ) {
-                    return 1;
-                } else if (distanceToFirstCountry - distanceToSecondCountry == 0 ){
+                if (distanceToFirstCountry - distanceToSecondCountry > 0) {
+                    return -1;
+                } else if (distanceToFirstCountry - distanceToSecondCountry == 0) {
                     return 0;
                 } else {
-                    return -1;
+                    return 1;
                 }
             }).collect(Collectors.toList());
         } catch (IOException e) {
