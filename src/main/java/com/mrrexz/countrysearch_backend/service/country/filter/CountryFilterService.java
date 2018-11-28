@@ -13,9 +13,6 @@ import java.util.stream.Collectors;
 @Service
 public class CountryFilterService implements ICountryFilterService {
 
-
-    @Autowired
-    ICountryRepository countryRepository;
     @Autowired
     ILocationService locationService;
 
