@@ -1,10 +1,21 @@
 package com.mrrexz.countrysearch_backend.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Country {
 
+    @SerializedName("name")
     private String countryName;
+    @SerializedName("latitude")
     private double latitude;
+    @SerializedName("longitude")
     private double longitude;
+
+    public Country(String countryName, double latitude, double longitude) {
+        this.countryName = countryName;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public String getCountryName() {
         return countryName;
