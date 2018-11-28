@@ -18,7 +18,7 @@ public class CountryDeserializer implements JsonDeserializer<List<Country>> {
             JsonObject countryObj = countries.get(i).getAsJsonObject();
             String name = countryObj.get("name").getAsString();
             double latitude = countryObj.get("lat").getAsDouble();
-            double longitude = countryObj.get("long").getAsDouble();
+            double longitude = countryObj.get("lng").getAsDouble();
             Country country = new Country(name, latitude, longitude);
             countryList.add(country);
         }
