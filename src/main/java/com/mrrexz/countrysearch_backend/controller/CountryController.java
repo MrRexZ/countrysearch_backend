@@ -14,7 +14,7 @@ public class CountryController {
     @Autowired
     ICountryService countryService;
 
-    @CrossOrigin(origins = Config.CLIENT_URL)
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "getCountries", method = RequestMethod.GET)
     public @ResponseBody List<String> getMatchingSortedCountries(@RequestParam("search") String countryToSearch) {
         List<String> matchingSortedCountriesName = countryService.getMatchingSortedClosestCountriesName(countryToSearch);
