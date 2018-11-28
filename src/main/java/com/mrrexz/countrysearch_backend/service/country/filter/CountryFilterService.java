@@ -7,6 +7,7 @@ import com.mrrexz.countrysearch_backend.service.location.ILocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,9 @@ public class CountryFilterService implements ICountryFilterService {
 
     @Override
     public List<Country> getMatchingCountry(String countryToSearch, List<Country> countriesToMatch) {
+        if (countriesToMatch == null) {
+            return new ArrayList<>();
+        }
         return countriesToMatch.stream().filter(country -> {
             String countryName = country.getCountryName();
             if (countryName.length() < countryToSearch.length()) {
