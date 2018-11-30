@@ -5,7 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.mrrexz.countrysearch_backend.model.Country;
 import com.mrrexz.countrysearch_backend.util.network.CountryDeserializer;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
@@ -20,8 +22,8 @@ public class CountryRepository implements ICountryRepository{
     @Override
     public List<Country> getAllCountry() {
         try {
-            File jsonCountryFile= ResourceUtils.getFile("classpath:json/countries_metadata.json");
-            String jsonContent = new String(Files.readAllBytes(jsonCountryFile.toPath()));
+            ClassPathResource countriesJsonResource = new ClassPathResource("json/countries_metadata.json");
+            String jsonContent = new String(FileCopyUtils.copyToByteArray(countriesJsonResource.getInputStream()));
             Gson gson = new GsonBuilder()
                     .registerTypeAdapter(new TypeToken<List<Country>>(){}.getType(), new CountryDeserializer())
                     .create();
